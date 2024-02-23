@@ -74,8 +74,10 @@ h1.heading {
     transition: box-shadow .25s; 
 }
 .card:hover {
-  box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
 }
+
 .img-card {
   width: 100%;
   height:200px;
@@ -115,7 +117,9 @@ h1.heading {
 </style>  
 </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-primary"> -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
         <div class="container-fluid">
           <a class="navbar-brand" href="">CMS</a>
           <button
