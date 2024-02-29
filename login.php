@@ -19,7 +19,6 @@ else {
     echo "<script>alert('Your email or passowrd is incorrect, try again...');</script>";
 }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
