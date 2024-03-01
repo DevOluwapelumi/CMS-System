@@ -39,24 +39,83 @@ else {
     <style>
         .login{
             margin: auto;
-            width: 50%;
+            width: 70%;
             margin-top: 20px;
         }
         body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-        }
-        .container {
-            width: 400px;
-            padding: 20px;
-            border: 1px solid #cccccc;
-            border-radius: 15px;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0; /* Adjusted to remove default margin */
+    padding: 0; /* Ensure there's no default padding */
+    height: 100vh; /* Full height of the viewport */
+    background: linear-gradient(to right, #007bff, #6610f2); /* Gradient background */
+    color: white;
+    position: relative; /* Needed for absolute positioning of pseudo-element */
+    overflow: hidden; /* Ensures pseudo-element doesn't extend beyond the viewport */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Adjust based on the desired size of the curve */
+    background: #6A8DAB; /* Color of the curve, matching the container's background */
+    border-radius: 100% / 100%; /* Creates the curve */
+    transform: scaleY(5.5); /* Stretches the shape to ensure it spans wider than the viewport */
+    z-index: -1; /* Ensures the curve is behind the content */
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 10% auto 0; /* Centering the container with a margin top */
+    padding: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 55px;
+    background: blue;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* To stack properly on top of the pseudo-element */
+    z-index: 1; /* Ensures the container is above the curved background */
+}
+
+
+@media (max-width: 768px) {
+    body {
+        display: flex; /* Establishes a flex container */
+        flex-direction: column; /* Stacks flex items vertically */
+        justify-content: center; /* Centers vertically in the flex container */
+        align-items: center; /* Centers horizontally in the flex container */
+        min-height: 100vh; /* Minimum height of the viewport */
+        margin: 10px; /* Provides a little space around the edges */
+    }
+
+    .container {
+        width: 100%; /* Adjust width for smaller screens */
+        max-width: 400px; /* Maximum width to maintain readability */
+        padding: 10px; /* Inner spacing */
+        margin: 0; /* Reset margin to allow flexbox centering to take effect */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Smaller heading on small screens */
+    }
+
+    .form-control {
+        font-size: 1rem; /* Adjusts form control text size for readability */
+    }
+}
+
     </style>
 </head>
 <body>
-<div class="container border shadow-lg">
+<div class="container border shadow-lg mt-5">
   <h2 class="text-center">Sign In</h2>
+  <img
+    src="https://img.freepik.com/free-vector/flat-design-cms-illustration_23-2148825220.jpg"
+    class="img-fluid rounded-top"
+    alt=""
+  />
   <hr>
   <div class="row justify-content-center">
     <div class="col-12">

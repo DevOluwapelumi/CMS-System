@@ -20,9 +20,9 @@ if(isset($_POST['register'])){
     }
 
 }
-  
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,21 +44,91 @@ if(isset($_POST['register'])){
             width: 50%;
             margin-top: 20px;
         }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-        }
-        .container {
-            width: 400px;
-            padding: 20px;
-            border: 1px solid #cccccc;
-            border-radius: 15px;
-        }
+        body, html {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #007bff, #6610f2);
+    font-family: Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20vh; /* Use vh for a responsive height */
+    transform: scaleY(5.5);
+    border-bottom-right-radius: 50% 20%;
+    border-bottom-left-radius: 50% 20%;
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    max-width: 100%; /* Use percentage for maximum width for responsiveness */
+    margin: 50px;
+    padding: 20px;
+    background: #6A8DAB;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (min-width: 576px) { /* Adjustments for small devices and up */
+    .container {
+        width: 500px; /* Fixed width for larger screens */
+    }
+}
+
+/* Input and textarea styling for better usability on mobile */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+input[type="date"],
+input[type="url"],
+textarea {
+    width: 100%; /* Full width to maximize space */
+    box-sizing: border-box; /* Include padding and border in the element's width */
+}
+
+/* Button and Link Adjustments */
+.btn-success, .btn-default {
+    width: 100%; /* Full width for easier touch */
+    margin: 5px 0; /* Add some space between buttons */
+}
+
+a {
+    display: block; /* Make links block to utilize full width */
+    margin-top: 10px; /* Space above the link */
+}
+
+/* Further Responsive Adjustments */
+@media (max-width: 575.98px) { /* Adjustments for extra small devices */
+    body::before {
+        height: 25vh; /* Increase height percentage for smaller screens */
+    }
+
+    .container {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    textarea {
+        height: auto; /* Allow textarea to adjust based on content */
+    }
+}
+
     </style>
 </head>
 <body>
+    
     <div class="container border shadow-lg">
-                    <h2 class="text-center">User Registeration</h2>
+                    <h2 class="text-center">Registeration</h2>
                     <hr>
                     <div class="row justify-content-center">
                      <div class="col-12">
@@ -106,6 +176,9 @@ if(isset($_POST['register'])){
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         <input type="submit" name="register" class="btn btn-success" value="Register">
+                        <div class="text-center">
+                        <p>Already a member? <a href="login.php">Login</a></p>
+                        </div>
                     </div>
                 </form>    
             </div>
